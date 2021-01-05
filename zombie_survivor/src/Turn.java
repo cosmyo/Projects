@@ -41,7 +41,7 @@ public class Turn {
 
     public boolean hasBeenBittenTooManyTimes() {
 
-        return bitten.getNumberOfZombies() >= 6;
+        return bitten.getNumberOfZombies() >= 5;
 
     }
 
@@ -90,6 +90,7 @@ public class Turn {
             }
 
             outcome[i] = currentOutcome;
+            ++i;
         }
 
         return outcome;

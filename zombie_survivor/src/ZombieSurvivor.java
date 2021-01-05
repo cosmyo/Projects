@@ -2,19 +2,23 @@ import java.util.Arrays;
 
 public class ZombieSurvivor {
 
-    private static final int ENDGAME_SCORE = 13;
+    private static final int ENDGAME_SCORE = 7;
 
     private final int[] playerScores;
 
     private int currentPlayer;
 
     public ZombieSurvivor(int numPlayers) {
+        System.out.println("Let the slaughter of zombies begin. The first player to kill " + ENDGAME_SCORE + " walking dead will live to see another day in Zombieland.");
         this.playerScores = new int[numPlayers];
         this.currentPlayer = 0;
     }
 
     public boolean isGameOver() {
         int index = Util.findIndexGreaterThanOrEqualTo(playerScores, ENDGAME_SCORE);
+        if (index >= 0) {
+            System.out.println("Player " + getCurrentPlayer() + " gets another chance in Zombieland. He/She was the first to kill " + ENDGAME_SCORE + " zombies.");
+        }
         return index >= 0;
     }
 

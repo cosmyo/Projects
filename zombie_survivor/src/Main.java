@@ -29,7 +29,7 @@ public class Main {
             System.out.println("Enter s to score, or anything else to draw again:");
             String state;
             state = IOUtil.readString();
-            if (state == "s") {
+            if (state.equals("s")) {
                 System.out.println("You scored " + turn.getCurrentScore());
                 return;
             }
@@ -46,7 +46,12 @@ public class Main {
         var zombieSurvivor = new ZombieSurvivor(numberOfSurvivors);
 
         while (!zombieSurvivor.isGameOver()) {
-            playTurn(zombieSurvivor.startPlayerTurn());
+            var currentTurn = zombieSurvivor.startPlayerTurn();
+
+            playTurn(currentTurn);
+
+            zombieSurvivor.scorePlayerTurn(currentTurn);
+
             zombieSurvivor.nextPlayer();
         }
     }
